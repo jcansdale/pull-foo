@@ -1,0 +1,12 @@
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: docker login ghcr.io -u token -p ${{ secrets.GITHUB_TOKEN }}
+      - run: docker pull ghcr.io/mutantdesign/foo
